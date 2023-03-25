@@ -5,18 +5,18 @@ public class MainTranslate {
 
     public static void main(String[] args) {
         ArrayList<String> translation =  Reader.readFile("src/diccionario.txt");
+
+        Controller.createList(2,translation);
+
+
         while(true){
             System.out.println("=========================\nWelcome to the translator\n=========================");
+
             Scanner in = new Scanner(System.in);
 
             System.out.println("1) Recorrido");
-            System.out.println("2) Ingles / Espanol");
-            System.out.println("3) Espanol / Ingles");
-            System.out.println("4) Ingles / Frances");
-            System.out.println("5) Espanol / Frances");
-            System.out.println("6) Frances / Espanol");
-            System.out.println("7) Frances / Ingles");
-            System.out.println("8) Salir");
+            System.out.println("2) Traducir texto");
+            System.out.println("3) Salir");
 
             String eject = in.nextLine();
 
@@ -25,6 +25,7 @@ public class MainTranslate {
                     break;
 
                 case "2":
+                    Controller.detectLanguage(Reader.readFile("src/Texto.txt").get(0));
                     break;
 
                 case "3":

@@ -11,15 +11,23 @@ public class Controller{
      */
 
     public static boolean containsWord(String[] phrase,ArrayList<String> language){
+
+        for(int i = 0;i<language.size();i++){
+            System.out.println(language.get(i));
+        }
+
+
         for(int i = 0;i<phrase.length;i++){
-            if (language.contains(phrase[i]));
-            return true;
+            System.out.println(phrase[i]);
+            if (language.contains(phrase[i])){
+                return true;
+            }
         }
         return false;
     }
 
     /**
-     * Method will return the language
+     * Method will return the language used.
      * @param phrase
      * @return
      */
@@ -27,26 +35,22 @@ public class Controller{
         ArrayList<String> englishWords = createList(0,Reader.readFile("src/diccionario.txt"));
         ArrayList<String> spanishWords = createList(1,Reader.readFile("src/diccionario.txt"));
         ArrayList<String> frenchWords = createList(2,Reader.readFile("src/diccionario.txt"));
-        phrase = phrase.replaceAll("\\.", ""); //Phrase with no points
+        String[] splittedPhrase = phrase.split(" ");
 
-        String[] splitedPhrase = phrase.split(" ");
-
-        if(containsWord(splitedPhrase,englishWords)){
+        if(containsWord(splittedPhrase,englishWords)){
             System.out.println("ENGLISH DETECTED");
             return "English";
         }
-        if(containsWord(splitedPhrase,spanishWords)){
+        if(containsWord(splittedPhrase,spanishWords)){
             System.out.println("SPANISH DETECTED");
             return "Spanish";
         }
-        if(containsWord(splitedPhrase,frenchWords)){
+        if(containsWord(splittedPhrase,frenchWords)){
             System.out.println("FRENCH DETECTED");
             return "French";
         }
         return null;
     }
-
-
 
 
     /**
@@ -59,8 +63,10 @@ public class Controller{
      * @return
      */
     public static ArrayList<String> createList(int languageIndex,ArrayList<String> allwords){
+
         ArrayList<String> words = new ArrayList<>();
         ArrayList<String[]> translationsList = new ArrayList<>();
+
         for (int i = 0;i<allwords.size();i++){
             String[] translations = allwords.get(i).split(",");
             translationsList.add(translations);

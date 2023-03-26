@@ -62,9 +62,6 @@ public class TrDictionary {
         System.out.println("=========\nTRANSLATION PROCESS STARTED");
         System.out.println("PHRASE: " + phrase);
         setTress();
-        //System.out.println("Translate received: "+phrase);
-        //var s = englishBasedTree.getTranslation("house","language1");
-        //System.out.println(s);
 
         phrase = phrase.replaceAll("\\.", ""); //Phrase with no points
         String[] splitedPhrase = phrase.split(" ");
@@ -105,7 +102,6 @@ public class TrDictionary {
     public static String buildTranslation(String[] splittedPhrase, BinaryTree languageTree, String language) {
         String finalPhrase = ""; //Building Phrase.
         for (int i = 0; i < splittedPhrase.length; i++) {
-            //System.out.println("Word: "+splittedPhrase[i]);
             var translation = languageTree.getTranslation(splittedPhrase[i], language);
             if (translation == null) {
                 //When word is not in the dictionary.

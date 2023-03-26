@@ -16,6 +16,7 @@ public class MainTranslate {
 
             switch (eject){
                 case "1":
+                    Controller.recorrido();
                     break;
                 case "2":
                     TrDictionary.translate(Reader.readFile("src/Texto.txt").get(0));

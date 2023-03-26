@@ -11,14 +11,7 @@ public class Controller{
      */
 
     public static boolean containsWord(String[] phrase,ArrayList<String> language){
-
-        for(int i = 0;i<language.size();i++){
-            System.out.println(language.get(i));
-        }
-
-
         for(int i = 0;i<phrase.length;i++){
-            System.out.println(phrase[i]);
             if (language.contains(phrase[i])){
                 return true;
             }
@@ -74,7 +67,15 @@ public class Controller{
         for (int i = 0;i<translationsList.size();i++){
             words.add(translationsList.get(i)[languageIndex]);
         }
+
         return words;
     }
+
+    public static void recorrido(){
+        for (int i = 0;i<TrDictionary.englishWords.size();i++){
+            System.out.println(TrDictionary.englishWords.get(i));
+        }
+    }
+
 
 }
